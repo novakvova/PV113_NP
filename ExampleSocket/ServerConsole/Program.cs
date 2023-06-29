@@ -9,7 +9,8 @@ namespace ServerConsole
         private static void Main(string[] args)
         {
             //IP - адреса нашого ПК
-            IPAddress ip = IPAddress.Parse("91.238.103.135");
+            IPAddress ip = IPAddress.Parse("127.0.0.1");
+           // IPAddress ip = IPAddress.Parse("91.238.103.135");
             int port = 9076; //порт на якому працює наш сервер
             //ідертифікатор нашого сервера
             IPEndPoint endPoint = new IPEndPoint(ip, port);
