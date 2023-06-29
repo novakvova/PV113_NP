@@ -9,7 +9,7 @@ namespace ServerConsole
         private static void Main(string[] args)
         {
             //IP - адреса нашого ПК
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
+            IPAddress ip = IPAddress.Parse("91.238.103.135");
             int port = 9076; //порт на якому працює наш сервер
             //ідертифікатор нашого сервера
             IPEndPoint endPoint = new IPEndPoint(ip, port);
@@ -34,6 +34,7 @@ namespace ServerConsole
                         Console.WriteLine("Повідомлення {0}", Encoding.Unicode.GetString(data));
                     } while (client.Available > 0); //якщо кількість байт, які ми читаємо більші 0
 
+                    Console.WriteLine("Client EndPoint {0}", client.RemoteEndPoint);
                     string message = "Дякую. Сервер отримав ваше повідомлення.";
                     data = Encoding.Unicode.GetBytes(message); //перетворюємо повідомлення в байти
                     client.Send(data); //сервер відправляє клієнту інформацію
