@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientConsole", "ClientCons
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDatabase", "TestDatabase\TestDatabase.csproj", "{67C8A5AF-00BC-4F8B-8F91-F58B470C6A47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiServer", "WebApiServer\WebApiServer.csproj", "{5B8FCCC1-2701-49F7-A17B-363D6009BA61}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiServer", "WebApiServer\WebApiServer.csproj", "{5B8FCCC1-2701-49F7-A17B-363D6009BA61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.WindowUpload", "1.WindowUpload\1.WindowUpload.csproj", "{D7D6E7B1-0C76-4A4E-9B5A-8C299D2572FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "1.WindowUpload", "1.WindowUpload\1.WindowUpload.csproj", "{D7D6E7B1-0C76-4A4E-9B5A-8C299D2572FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2.ServerTCPChat", "2.ServerTCPChat\2.ServerTCPChat.csproj", "{E8E85535-B823-4251-96C6-E80F493AF450}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3.WPFChatClient", "3.WPFChatClient\3.WPFChatClient.csproj", "{C5F34636-CEFE-4A06-8B89-37FF308F67F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{D7D6E7B1-0C76-4A4E-9B5A-8C299D2572FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7D6E7B1-0C76-4A4E-9B5A-8C299D2572FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7D6E7B1-0C76-4A4E-9B5A-8C299D2572FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8E85535-B823-4251-96C6-E80F493AF450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E85535-B823-4251-96C6-E80F493AF450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E85535-B823-4251-96C6-E80F493AF450}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E85535-B823-4251-96C6-E80F493AF450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5F34636-CEFE-4A06-8B89-37FF308F67F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5F34636-CEFE-4A06-8B89-37FF308F67F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5F34636-CEFE-4A06-8B89-37FF308F67F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5F34636-CEFE-4A06-8B89-37FF308F67F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
