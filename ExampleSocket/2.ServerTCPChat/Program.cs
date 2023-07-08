@@ -39,10 +39,7 @@ namespace _2.ServerTCPChat
                 Console.WriteLine("Появився на сервері новий клієнт {0}", client.Client.RemoteEndPoint);
                 Thread t = new Thread(handle_clients);
                 t.Start(count);
-                lock(_lock)
-                {
-                    count++;
-                }
+                count++;
             }
 
         }
@@ -57,12 +54,12 @@ namespace _2.ServerTCPChat
             while(true)
             {
                 NetworkStream stream = client.GetStream();
-                byte[] buffer = new byte[400096];
+                byte[] buffer = new byte[16054400];
                 int byte_count = stream.Read(buffer);
                 if (byte_count == 0)
                     break; //клієнт вийшов із чату
-                string data = Encoding.UTF8.GetString(buffer);
-                Console.WriteLine("Client Message {0}", data);
+                string data = Encoding.UTF8.GetString(buffer, 0, byte_count);
+                //Console.WriteLine("Client Message {0}", data);
                 broadcast(data); //розсилаємо повідомлення усім клієнтам чату
             }
             lock(_lock)

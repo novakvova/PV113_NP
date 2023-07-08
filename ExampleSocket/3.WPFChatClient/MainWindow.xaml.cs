@@ -92,7 +92,7 @@ namespace _3.WPFChatClient
             try
             {
                 IPAddress ip = IPAddress.Parse("127.0.0.1");
-                int port = 1089;
+                int port = 1023;
                 _message.UserId = Guid.NewGuid().ToString();
                 _message.Name = txtUserName.Text;
                 _message.Photo = image;
@@ -117,7 +117,7 @@ namespace _3.WPFChatClient
         private void ReceivedData(TcpClient client) //отримує дані від сервера через даний метод
         {
             NetworkStream ns = client.GetStream();
-            byte[] readBytes = new byte[400096];
+            byte[] readBytes = new byte[16054400];
             int byte_count;
             while((byte_count = ns.Read(readBytes))>0) {
 
