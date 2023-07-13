@@ -91,7 +91,7 @@ namespace _3.WPFChatClient
         {
             try
             {
-                IPAddress ip = IPAddress.Parse("127.0.0.1");
+                IPAddress ip = IPAddress.Parse("91.238.103.135");
                 int port = 1023;
                 _message.UserId = Guid.NewGuid().ToString();
                 _message.Name = txtUserName.Text;
