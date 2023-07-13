@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace _3.WPFChatClient
 {
@@ -36,7 +37,7 @@ namespace _3.WPFChatClient
         {
             ChatMessage msg = new ChatMessage();
 
-            using (var m = new MemoryStream())
+            using (var m = new MemoryStream(data))
             {
                 using(BinaryReader br = new BinaryReader(m))
                 {
@@ -47,6 +48,24 @@ namespace _3.WPFChatClient
                 }
             }
             return msg;
+        }
+
+        public static BitmapImage ToBitmapImage(byte[] data)
+        {
+            using (MemoryStream ms = new MemoryStream(data))
+            {
+                BitmapImage img = new BitmapImage();
+                img.BeginInit();
+                img.CacheOption = BitmapCacheOption.OnLoad;//CacheOption must be set after BeginInit()
+                img.StreamSource = ms;
+                img.EndInit();
+
+                if (img.CanFreeze)
+                {
+                    img.Freeze();
+                }
+                return img;
+            }
         }
     }
 }

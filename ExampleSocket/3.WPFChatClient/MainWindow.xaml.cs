@@ -113,20 +113,57 @@ namespace _3.WPFChatClient
             }
             
         }
-
+        //Читання даних від сервера
         private void ReceivedData(TcpClient client) //отримує дані від сервера через даний метод
         {
             NetworkStream ns = client.GetStream();
             byte[] readBytes = new byte[16054400];
             int byte_count;
             while((byte_count = ns.Read(readBytes))>0) {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    ChatMessage message = ChatMessage.Desserialize(readBytes);
+                    var grid = new Grid();
+                    for (int i = 0; i < 2; i++) {
+                        var colDef = new ColumnDefinition();
+                        colDef.Width = GridLength.Auto;
+                        grid.ColumnDefinitions.Add(colDef);
+                    }
+                    BitmapImage bmp = new BitmapImage(new Uri($"https://pv113.itstep.click{message.Photo}"));
+                    //BitmapImage bmp = new BitmapImage();
+                    //string urlImage = $"https://pv113.itstep.click{message.Photo}";
+                    //using (var webClient = new WebClient())
+                    //{
+                    //    var data = webClient.DownloadData(urlImage);
+                    //    bmp = ChatMessage.ToBitmapImage(data);
+                    //}
+                    var image = new Image();
+                    image.Source = bmp;
+                    image.Width = 50;
+                    image.Height = 50;
 
+                    var textBlock = new TextBlock();
+                    Grid.SetColumn(textBlock, 1);
+                    textBlock.VerticalAlignment = VerticalAlignment.Center;
+                    textBlock.Margin = new Thickness(5,0,0,0);
+                    textBlock.Text = message.Name + " -> " + message.Text;
+                    grid.Children.Add(image);
+                    grid.Children.Add(textBlock);
+
+                    lbInfo.Items.Add(grid);
+                    lbInfo.Items.MoveCurrentToLast();
+                    lbInfo.ScrollIntoView(lbInfo.Items.CurrentItem);
+
+                }));
             }
         }
         //надсилаємо повідомлення на сервер
         private void bntSend_Click(object sender, RoutedEventArgs e)
         {
-
+            _message.Text = txtText.Text;
+            var buffer = _message.Serialize();
+            ns.Write(buffer); //відправляємо повідомлення на сервер
+            txtText.Text = "";
         }
     }
 }

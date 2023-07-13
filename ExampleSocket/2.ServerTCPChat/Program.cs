@@ -51,17 +51,21 @@ namespace _2.ServerTCPChat
             {
                 client = list_clients[id];
             }
-            while(true)
+            try
             {
-                NetworkStream stream = client.GetStream();
-                byte[] buffer = new byte[16054400];
-                int byte_count = stream.Read(buffer);
-                if (byte_count == 0)
-                    break; //клієнт вийшов із чату
-                string data = Encoding.UTF8.GetString(buffer, 0, byte_count);
-                //Console.WriteLine("Client Message {0}", data);
-                broadcast(data); //розсилаємо повідомлення усім клієнтам чату
+                while (true)
+                {
+                    NetworkStream stream = client.GetStream();
+                    byte[] buffer = new byte[16054400];
+                    int byte_count = stream.Read(buffer);
+                    if (byte_count == 0)
+                        break; //клієнт вийшов із чату
+                    string data = Encoding.UTF8.GetString(buffer, 0, byte_count);
+                    Console.WriteLine("Client Message {0}", data);
+                    broadcast(data); //розсилаємо повідомлення усім клієнтам чату
+                }
             }
+            catch { }
             lock(_lock)
             {
                 Console.WriteLine("Клієнт покинув чат {0}", client.Client.RemoteEndPoint);
@@ -76,11 +80,16 @@ namespace _2.ServerTCPChat
             byte[] buffer = Encoding.UTF8.GetBytes(data);
             lock(_lock)
             {
-                foreach(var c in list_clients.Values)
+                try
                 {
-                    NetworkStream stream = c.GetStream(); //потік клієнта
-                    stream.Write(buffer); //відправляю повідомлення
+                    foreach (var c in list_clients.Values)
+                    {
+                        NetworkStream stream = c.GetStream(); //потік клієнта
+                        stream.Write(buffer); //відправляю повідомлення
+                    }
                 }
+                catch { }
+                
             }
         }
     }
