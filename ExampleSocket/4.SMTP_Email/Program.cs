@@ -1,4 +1,6 @@
-﻿namespace _4.SMTP_Email
+﻿using MimeKit.Text;
+
+namespace _4.SMTP_Email
 {
     internal class Program
     {
@@ -10,11 +12,15 @@
             Message info = new Message()
             {
                 Subject = "На скільки зараз тепла вода",
-                Body = "Не втрачаємо час. Треба іти купатися",
+                //Body = "Не втрачаємо час. Треба іти купатися",
                 To = "novakvova@gmail.com"
             };
-            //emailService.Send(info);
-            emailService.DownloadMessages();
+            string html = File.ReadAllText("html/index.html");
+            //html = html.Replace("{$Title}", "Добре істи");
+            info.Body = html;
+            info.Subject = "Відання з днем народження";
+            emailService.Send(info);
+            //emailService.DownloadMessages();
         }
     }
 }
