@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "2.ServerTCPChat", "2.Server
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "3.WPFChatClient", "3.WPFChatClient\3.WPFChatClient.csproj", "{C5F34636-CEFE-4A06-8B89-37FF308F67F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "4.SMTP_Email", "4.SMTP_Email\4.SMTP_Email.csproj", "{BE33EAC1-399A-4809-BDD6-D5FB006CC18A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "4.SMTP_Email", "4.SMTP_Email\4.SMTP_Email.csproj", "{BE33EAC1-399A-4809-BDD6-D5FB006CC18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "5.HTTP_Protocol", "5.HTTP_Protocol\5.HTTP_Protocol.csproj", "{695A504F-4AA9-4392-B3C5-4A2917018CB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{BE33EAC1-399A-4809-BDD6-D5FB006CC18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE33EAC1-399A-4809-BDD6-D5FB006CC18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE33EAC1-399A-4809-BDD6-D5FB006CC18A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{695A504F-4AA9-4392-B3C5-4A2917018CB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{695A504F-4AA9-4392-B3C5-4A2917018CB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{695A504F-4AA9-4392-B3C5-4A2917018CB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{695A504F-4AA9-4392-B3C5-4A2917018CB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
