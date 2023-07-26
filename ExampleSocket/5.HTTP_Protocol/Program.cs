@@ -45,6 +45,26 @@ namespace _5.HTTP_Protocol
                     Console.WriteLine("User info {0}", data); //виводимо дані на екран, що зробив сервак
                 }
             }
+            catch (WebException ex)
+            {
+                // Handle web-related exceptions
+                if (ex.Response != null)
+                {
+                    using (Stream errorResponseStream = ex.Response.GetResponseStream())
+                    {
+                        using (StreamReader errorStreamReader = new StreamReader(errorResponseStream))
+                        {
+                            string errorResponseData = errorStreamReader.ReadToEnd();
+                            Console.WriteLine("Error Response Data:");
+                            Console.WriteLine(errorResponseData);
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("WebException: " + ex.Message);
+                }
+            }
             catch (Exception ex) { Console.WriteLine(ex.Message); }
         }
         public static string ImageToBase64(string path)
