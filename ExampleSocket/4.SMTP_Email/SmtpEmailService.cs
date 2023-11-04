@@ -18,7 +18,7 @@ namespace _4.SMTP_Email
             {
                 Text = message.Body
             };
-            string path = @"C:\Users\novak\Desktop\images\192221526.jpg";
+            string path = @"D:\images\22.jpg";
 
             var attachment = new MimePart("image", "jpeg")
             {
