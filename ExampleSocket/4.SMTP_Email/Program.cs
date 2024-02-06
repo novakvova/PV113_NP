@@ -11,14 +11,14 @@ namespace _4.SMTP_Email
             SmtpEmailService emailService = new SmtpEmailService();
             Message info = new Message()
             {
-                Subject = "На скільки зараз тепла вода",
+                Subject = "Перевірка чи працює smtp",
                 //Body = "Не втрачаємо час. Треба іти купатися",
-                To = "novakvova@gmail.com"
+                To = "bogdan.slonets@gmail.com"
             };
             string html = File.ReadAllText("html/index.html");
             //html = html.Replace("{$Title}", "Добре істи");
             info.Body = html;
-            info.Subject = "Відання з днем народження";
+            info.Subject = "Буде круто, якщо трапиться хороша дівчина!";
             emailService.Send(info);
             //emailService.DownloadMessages();
         }

@@ -27,7 +27,7 @@ namespace _4.SMTP_Email
         /// <summary>
         /// Пароль, який видав сервер
         /// </summary>
-        public string Password { get; set; } = "MVjWbajb9tGqiHgK";
+        public string Password { get; set; } = "VMkgtOASTZk6WEIk";
 
     }
 }
