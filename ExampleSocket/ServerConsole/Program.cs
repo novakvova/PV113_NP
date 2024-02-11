@@ -8,29 +8,29 @@ namespace ServerConsole
     {
         private static void Main(string[] args)
         {
-            IPAddress ipAddress;
-        int portTest= 9076;
-        string hostName = Dns.GetHostName();
-            IPHostEntry ipHostInfo = Dns.GetHostEntry(hostName);
-            ipAddress = null;
-            for (int i = 0; i < ipHostInfo.AddressList.Length; ++i)
-            {
-                Console.WriteLine("Addres {0}", ipHostInfo.AddressList[i]);
-                if (ipHostInfo.AddressList[i].AddressFamily ==
-                  AddressFamily.InterNetwork)
-                {
-                    ipAddress = ipHostInfo.AddressList[i];
-                    break;
-                }
-            }
+            //    IPAddress ipAddress;
+            //int portTest= 9076;
+            //string hostName = Dns.GetHostName();
+            //    IPHostEntry ipHostInfo = Dns.GetHostEntry(hostName);
+            //    ipAddress = null;
+            //    for (int i = 0; i < ipHostInfo.AddressList.Length; ++i)
+            //    {
+            //        Console.WriteLine("Addres {0}", ipHostInfo.AddressList[i]);
+            //        if (ipHostInfo.AddressList[i].AddressFamily ==
+            //          AddressFamily.InterNetwork)
+            //        {
+            //            ipAddress = ipHostInfo.AddressList[i];
+            //            break;
+            //        }
+            //    }
 
-            IPHostEntry ipHostInfo1 = Dns.Resolve(Dns.GetHostName());
-            IPAddress ipAddress1 = ipHostInfo.AddressList[0];
-            Console.WriteLine("IP run {0}",ipAddress1);
-            /*
-                //IP - адреса нашого ПК
-            IPAddress ip = IPAddress.Parse("127.0.0.1");
-           // IPAddress ip = IPAddress.Parse("91.238.103.135");
+            //    IPHostEntry ipHostInfo1 = Dns.Resolve(Dns.GetHostName());
+            //    IPAddress ipAddress1 = ipHostInfo.AddressList[0];
+            //    Console.WriteLine("IP run {0}",ipAddress1);
+
+            //IP - адреса нашого ПК
+            //IPAddress ip = IPAddress.Parse("127.0.0.1");
+            IPAddress ip = IPAddress.Parse("172.26.1.22");
             int port = 9076; //порт на якому працює наш сервер
             //ідертифікатор нашого сервера
             IPEndPoint endPoint = new IPEndPoint(ip, port);
@@ -67,7 +67,7 @@ namespace ServerConsole
             {
                 Console.WriteLine("Помилка роботи програми {0}", ex.Message);
             }
-            */
+            
         }
     }
 }
