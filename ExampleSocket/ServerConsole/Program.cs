@@ -23,6 +23,10 @@ namespace ServerConsole
                     break;
                 }
             }
+
+            IPHostEntry ipHostInfo1 = Dns.Resolve(Dns.GetHostName());
+            IPAddress ipAddress1 = ipHostInfo.AddressList[0];
+            Console.WriteLine("IP run {0}",ipAddress1);
             /*
                 //IP - адреса нашого ПК
             IPAddress ip = IPAddress.Parse("127.0.0.1");
