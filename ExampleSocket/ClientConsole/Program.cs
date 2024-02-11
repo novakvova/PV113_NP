@@ -9,7 +9,8 @@ namespace ClientConsole
         static void Main(string[] args)
         {
             //наш сервер, який буде отримувать повідомлення
-            IPAddress serverIP = IPAddress.Parse("91.238.103.135");
+            //IPAddress serverIP = IPAddress.Parse("91.238.103.135");
+            IPAddress serverIP = IPAddress.Parse("127.0.0.1");
             int port = 9076;
             try
             {
