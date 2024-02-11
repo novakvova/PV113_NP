@@ -8,7 +8,23 @@ namespace ServerConsole
     {
         private static void Main(string[] args)
         {
-            //IP - адреса нашого ПК
+            IPAddress ipAddress;
+        int portTest= 9076;
+        string hostName = Dns.GetHostName();
+            IPHostEntry ipHostInfo = Dns.GetHostEntry(hostName);
+            ipAddress = null;
+            for (int i = 0; i < ipHostInfo.AddressList.Length; ++i)
+            {
+                Console.WriteLine("Addres {0}", ipHostInfo.AddressList[i]);
+                if (ipHostInfo.AddressList[i].AddressFamily ==
+                  AddressFamily.InterNetwork)
+                {
+                    ipAddress = ipHostInfo.AddressList[i];
+                    break;
+                }
+            }
+            /*
+                //IP - адреса нашого ПК
             IPAddress ip = IPAddress.Parse("127.0.0.1");
            // IPAddress ip = IPAddress.Parse("91.238.103.135");
             int port = 9076; //порт на якому працює наш сервер
@@ -47,6 +63,7 @@ namespace ServerConsole
             {
                 Console.WriteLine("Помилка роботи програми {0}", ex.Message);
             }
+            */
         }
     }
 }
